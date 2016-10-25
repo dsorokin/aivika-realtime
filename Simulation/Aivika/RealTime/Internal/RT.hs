@@ -33,18 +33,16 @@ import Simulation.Aivika.RealTime.Internal.Channel
 
 -- | How the modeling time is scaled to a real time.
 data RTScaling = RTLinearScaling Double
-                 -- ^ one unit of modeling time interval starting from
-                 -- initial modeling time matches the specified amount
-                 -- of real seconds
+                 -- ^ one unit of modeling time interval matches
+                 -- the specified amount of real seconds
                | RTLogScaling Double
                  -- ^ the logarithm of one unit of modeling time
-                 -- interval starting from the initial modeling time
-                 -- matches the specified amount of real seconds
+                 -- interval matches the specified amount of
+                 -- real seconds
                | RTScalingFunction (Double -> Double -> Double)
                  -- ^ we explicitly define how many real seconds
-                 -- will we receive for the specified start time and
-                 -- current modeling time to define the real time
-                 -- interval
+                 -- will we receive for the interval specified by
+                 -- the provided start time and current modeling time
 
 -- | Scale the modeling time to a real time.
 rtScale :: RTScaling
@@ -127,7 +125,7 @@ invokeRT :: RTContext m -> RT m a -> m a
 invokeRT ctx (RT m) = m ctx
 
 -- | The default parameters for the 'RT' computation,
--- when one unit of modeling time matches one real second
+-- where one unit of modeling time matches one real second
 -- and the real time interval is specified with precision of
 -- one millisecond.
 defaultRTParams :: RTParams
