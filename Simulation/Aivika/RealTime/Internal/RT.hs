@@ -52,6 +52,7 @@ rtScale :: RTScaling
            -> Double
            -- ^ the current modeling time
            -> Double
+           -- ^ the real time interval
 rtScale (RTLinearScaling k) t0 t = k * (t - t0)
 rtScale (RTLogScaling k) t0 t = k * log (t - t0)
 rtScale (RTScalingFunction f) t0 t = f t0 t
