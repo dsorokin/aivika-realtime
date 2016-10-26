@@ -19,6 +19,8 @@ tested-with:     GHC == 7.10.3
 
 extra-source-files:  CHANGELOG.md
                      tests/MachRep1.hs
+                     tests/MachRep1Ver2.hs
+                     tests/MachRep1Ver3.hs
 
 library
 
@@ -34,6 +36,7 @@ library
                      mtl >= 2.1.1,
                      stm >= 2.4.2,
                      containers >= 0.4.0.0,
+                     async >= 2.0,
                      time >= 1.5.0.1,
                      aivika >= 4.5,
                      aivika-transformers >= 4.5.1
