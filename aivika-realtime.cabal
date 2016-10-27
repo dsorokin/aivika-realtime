@@ -1,5 +1,5 @@
 name:            aivika-realtime
-version:         0.1
+version:         0.1.1
 synopsis:        Soft real-time simulation module for the Aivika library
 description:
     This package allows running soft real-time simulations based on the aivika-transformers [1] library.
@@ -50,4 +50,4 @@ library
 source-repository head
 
     type:     git
-    location: https://github.com/dsorokin/aivika-lattice
+    location: https://github.com/dsorokin/aivika-realtime
