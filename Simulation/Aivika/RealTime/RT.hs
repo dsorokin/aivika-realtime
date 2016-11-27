@@ -41,12 +41,12 @@ import Simulation.Aivika.IO.Exception
 import Simulation.Aivika.RealTime.Internal.RT
 import Simulation.Aivika.RealTime.Internal.Channel
 import Simulation.Aivika.RealTime.Event
-
--- | An implementation of the 'MonadTemplate' type class.
-instance (Monad m, MonadIO m, MonadException m) => MonadTemplate (RT m)
+import Simulation.Aivika.RealTime.QueueStrategy
+import Simulation.Aivika.RealTime.Comp
+import Simulation.Aivika.RealTime.Ref.Base
 
 -- | An implementation of the 'MonadDES' type class.
-instance (Monad m, MonadIO m, MonadException m) => MonadDES (RT m) where
+instance (Monad m, MonadIO m, MonadException m, MonadComp m) => MonadDES (RT m) where
 
   {-# SPECIALIZE instance MonadDES (RT IO) #-}
 
