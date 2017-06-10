@@ -1,7 +1,7 @@
 
 -- |
 -- Module     : Simulation.Aivika.RealTime.RT
--- Copyright  : Copyright (c) 2016, David Sorokin <david.sorokin@gmail.com>
+-- Copyright  : Copyright (c) 2016-2017, David Sorokin <david.sorokin@gmail.com>
 -- License    : BSD3
 -- Maintainer : David Sorokin <david.sorokin@gmail.com>
 -- Stability  : experimental
@@ -43,7 +43,8 @@ import Simulation.Aivika.RealTime.Internal.Channel
 import Simulation.Aivika.RealTime.Event
 import Simulation.Aivika.RealTime.QueueStrategy
 import Simulation.Aivika.RealTime.Comp
-import Simulation.Aivika.RealTime.Ref.Base
+import Simulation.Aivika.RealTime.Ref.Base.Lazy
+import Simulation.Aivika.RealTime.Ref.Base.Strict
 
 -- | An implementation of the 'MonadDES' type class.
 instance (Monad m, MonadIO m, MonadException m, MonadComp m) => MonadDES (RT m) where
