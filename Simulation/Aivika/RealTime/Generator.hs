@@ -18,8 +18,10 @@ import Control.Monad
 import Control.Monad.Trans
 
 import System.Random
+import qualified System.Random.MWC as MWC
 
 import Data.IORef
+import Data.Vector
 
 import Simulation.Aivika.Trans.Generator
 import Simulation.Aivika.Trans.Generator.Primitive
@@ -85,9 +87,15 @@ instance (Functor m, Monad m, MonadIO m) => MonadGenerator (RT m) where
   newGenerator tp =
     case tp of
       SimpleGenerator ->
-        liftIO newStdGen >>= newRandomGenerator
+        do let g = MWC.uniform <$>
+                   MWC.withSystemRandom (return :: MWC.GenIO -> IO MWC.GenIO)
+           g' <- liftIO g
+           newRandomGenerator01 (liftIO g')
       SimpleGeneratorWithSeed x ->
-        newRandomGenerator $ mkStdGen x
+        do let g = MWC.uniform <$>
+                   MWC.initialize (singleton x)
+           g' <- liftIO g
+           newRandomGenerator01 (liftIO g')
       CustomGenerator g ->
         g
       CustomGenerator01 g ->

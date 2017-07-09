@@ -1,5 +1,5 @@
 name:            aivika-realtime
-version:         0.2
+version:         0.3
 synopsis:        Soft real-time simulation module for the Aivika library
 description:
     This package allows running soft real-time simulations based on the aivika-transformers [1] library.
@@ -43,10 +43,12 @@ library
                      stm >= 2.4.2,
                      containers >= 0.4.0.0,
                      random >= 1.0.0.3,
+                     mwc-random >= 0.13.0.0,
                      async >= 2.0,
                      time >= 1.5.0.1,
-                     aivika >= 5.1,
-                     aivika-transformers >= 5.1
+                     vector >= 0.10.0.1,
+                     aivika >= 5.2,
+                     aivika-transformers >= 5.2
 
     extensions:      TypeFamilies,
                      MultiParamTypeClasses,
