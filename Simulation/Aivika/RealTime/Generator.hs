@@ -88,7 +88,7 @@ instance (Functor m, Monad m, MonadIO m) => MonadGenerator (RT m) where
     case tp of
       SimpleGenerator ->
         do let g = MWC.uniform <$>
-                   MWC.withSystemRandom (return :: MWC.GenIO -> IO MWC.GenIO)
+                   MWC.createSystemRandom
            g' <- liftIO g
            newRandomGenerator01 (liftIO g')
       SimpleGeneratorWithSeed x ->
